@@ -5,7 +5,7 @@ Param: log_file: Path to the log file to analyze
 Param: action: Action to perform - either "templates" to show log templates or "parameters" to extract parameters
 Param: cluster_id: Optional cluster ID to extract parameters from (required when action is "parameters")
 
-cd "${GPTSCRIPT_TOOL_DIR}" && python3 drain_parse.py
+#!/usr/bin/env python3 ${GPTSCRIPT_TOOL_DIR}/drain_parse.py
 
 ---
 !metadata:*:category
