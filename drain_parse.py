@@ -13,9 +13,36 @@ from collections import defaultdict
 import re
 import argparse
 
+ini_content = """[SNAPSHOT]
+snapshot_interval_minutes = 10
+compress_state = True
+
+[DRAIN]
+# engine is Optional parameter. Engine will be "Drain" if the engine argument is not specified.
+# engine has two options: 'Drain' and 'JaccardDrain'.
+# engine = Drain
+sim_th = 0.7
+depth = 6
+max_children = 512
+max_clusters = 1024
+extra_delimiters = ["_"]
+
+[PROFILING]
+enabled = True
+report_sec = 30
+"""
+
+# File path for the INI file
+drain_config_file = "drain3.ini"
+
+# Check if the file exists
+if not os.path.exists(drain_config_file):
+    # If the file does not exist, create it
+    with open(drain_config_file, "w") as fout:
+        fout.write(ini_content)
 
 config = TemplateMinerConfig()
-config.load(f"drain3.ini")
+config.load(drain_config_file)
 config.profiling_enabled = True
 
 
