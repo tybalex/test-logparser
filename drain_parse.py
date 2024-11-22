@@ -156,6 +156,7 @@ def main():
 
         if action == 'templates':
             # Templates are already displayed by display_clusters()
+            print(clusters)
             pass
         elif action == 'parameters':
             if not cluster_id:
